@@ -1,0 +1,24 @@
+#$doc_type=$HTTP_POST_FILES['doc']['type'];
+#$doc_size=$HTTP_POST_FILES['doc']['size'];
+#$source=$HTTP_POST_FILES['doc']['name'];
+#$source_name=$HTTP_POST_FILES['doc']['name'];
+
+	<!--
+	$source=$_FILES['doc']['tmp_name'];
+	$source_name= $_FILES['doc']['tmp_name'];
+	$doc_size=$_FILES['doc']['size'];
+	$doc_type=$_FILES['doc']['type'];
+
+$path=(dirname($_FILES['doc']['tmp_name']))."\\upload\\";
+		if(($source_name<>"none")&&($source_name<>"")){
+			$dest="upload\\".$source_name;
+			if(move_uploaded_file($source,$dest)){
+				echo "<br>Cópia do ficheiro ".$source_name." efetuada com sucesso.";
+				echo"<br> tamanho do ficheiro $doc_size bytes";
+				echo"<br> tipo do ficheiro $doc_type";
+				}
+				else{
+					echo"diretório sem direitos de escrita <br>";
+					}
+					unlink($source);
+					}
