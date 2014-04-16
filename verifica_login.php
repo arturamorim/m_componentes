@@ -12,15 +12,15 @@ if(!empty($_POST) AND (empty($_POST['nome_login']) OR empty($_POST['password']))
 }
 
 $username=$_POST['nome_login'];
-$password=$_POST['password'];
+$password=SHA1($_POST['password']);
 
-$sql="SELECT id_cliente, nome_login, password, nivel_utilizador FROM clientes WHERE nome_login='$username' AND password='$password' ";
+$sql="SELECT id_utilizador, nome_login, password, nivel_utilizador FROM utilizadores WHERE nome_login='$username' AND password='$password' ";
 
 $consulta=mysql_query($sql);
 
 $resultado=mysql_fetch_assoc($consulta); //Retorna uma matriz associativa que corresponde a linha ou FALSE se não houverem mais linhas.
 
-$_SESSION['id_cliente']=$resultado['id_cliente'];
+$_SESSION['id_utilizador']=$resultado['id_utilizador'];
 	
 $_SESSION['nome_login']=$resultado['nome_login'];
 

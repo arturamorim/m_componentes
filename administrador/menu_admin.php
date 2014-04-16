@@ -18,7 +18,7 @@ function loginfailed(){
 session_start();
 
 //verificar se o utilizador está autenticado
-if(isset($_SESSION['id_utilizador'])){
+if(!isset($_SESSION['id_utilizador'])){
 echo"<tr>Não está autorizado a aceder a esta página! </tr>";
 echo"<script>loginfailed()</script>";
 }
@@ -31,7 +31,9 @@ if(isset($_SESSION['nivel_utilizador']))
 <td align="center">Menu de administrador</td><br/>
 <tr>
 	<td><a href='adicionar_categoria.php'>Adicionar categoria</a>
-		<p><a href='listar_clientes.php'>Listar clientes</a>
+	<p><a href='listar_categorias.php'>Listar categorias</a>	
+	<p><a href='listar_utilizadores_por_validar.php'>Listar utilizadores por validar</a>
+		<p><a href='listar_utilizadores.php'>Listar utilizadores</a>
 	<p><a href='../logout.php'>Terminar sessão</a></td>
 </tr>
 </body>
