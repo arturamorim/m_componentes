@@ -19,7 +19,7 @@
 		
 		<div id="conteudo">
 			<h2>
-				Clientes
+				Administradores
 			</h2>
 		<?php
 		//iniciar sessão
@@ -29,20 +29,19 @@
 
 		//criar consulta à base de dados
 
-		$sql ='SELECT * from utilizadores WHERE nivel_utilizador="0" ORDER BY data_registo ASC';
+		$sql ='SELECT * from utilizadores WHERE nivel_utilizador="2" ORDER BY data_registo ASC';
 		$consulta=mysql_query($sql);
 
 		//verificar se existem resultados e construir tabela
 		if($consulta !=0){
+			echo'<h2 align="center">Administradores</h2>';
 			echo'<table width="600 px" border=1 align="center" cellspacing=0>';
 			echo'<tr>
-			<td align="center" width="50px">Nº registo</td>
-			<td align="center" width="50px">Nome de acesso</td>
-			<td align="center" width="100px">Email</td>
-			<td align="center" width="300px">Data de registo</td>
-			<td align="center" width="100px">Documento comprovativo</td>
-			<td align="center" width="100px">Validar</td>
-			<td align="center" width="100px">Eliminar</td>';
+			<td align="center" width="50px"><b>Nº registo</td>
+			<td align="center" width="50px"><b>Nome de acesso</td>
+			<td align="center" width="100px"><b>Email</td>
+			<td align="center" width="300px"><b>Data de registo</td>
+			<td align="center" width="100px"><b>Eliminar</td>';
 
 			//percorrer o array e mostrar resultados
 			while($mostrar=mysql_fetch_array($consulta)){
@@ -51,15 +50,11 @@
 				$nome_login=$mostrar["nome_login"];
 				$email=$mostrar["email"];
 				$data_registo=$mostrar["data_registo"];
-				$doc_comprovativo=$mostrar["doc_comprovativo"];
 				echo"<tr>
 				<td align=\"center\" width \"50px\">$id_utilizador</td>
 				<td align=\"center\" width \"50px\">$nome_login</td>
 				<td align=\"center\" width \"50px\">$email</td>
 				<td align=\"center\" width \"50px\">$data_registo</td>
-				<td align=\"center\" width \"50px\"><a href='../comprovativos_atividade/$doc_comprovativo' target='_blank'><img src='../icones/doc5.gif'></td>
-				<td align=\"center\"><a onclick=\"return confirm('Confirma que vai validar o utilizador?')\"
-				href=\"validar_utilizador.php?id_utilizador=$id_utilizador_cod\"><img src='../icones/check.png'/></a>
 				<td align=\"center\"><a onclick=\"return confirm('Confirma que vai eliminar o cliente?')\"
 				href=\"eliminar_utilizador.php?id_utilizador=$id_utilizador_cod\"><img src='../icones/eliminar.gif'/></a>
 				</tr>";}

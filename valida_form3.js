@@ -13,7 +13,7 @@ function validar(){
 	var telefone = document.signup.telefone.value; 
 	var nif =	document.signup.nif.value; 
 	var email =	document.signup.email.value;
-  
+  //nome = document.getElementById("tnome").value;
   //aqui começa a validação
   //alert("seu nome "+nome+" seu email "+email);
 
@@ -30,7 +30,8 @@ function validar(){
 	 document.getElementById('id_password').focus(); // coloca o cursor no campo nome
 	 return false; //retorna um valor de false para a funcao			
   }
-    if(primeiro_nome == ""){ //verifica se o campo esta vazio, se for...
+	var regNome=/^[^0-9]+$/;
+	if(primeiro_nome == "" || !regNome.test(primeiro_nome)){ //verifica se o campo esta vazio, se for...
 	 alert("Digite o seu primeiro nome"); //... pede que digite uma pass
 	 document.getElementById('erro_primeiro_nome').innerHTML ="Digite um nome válido"; //segunda opção de aviso, aparece mensagem no html
 	 document.getElementById('id_primeiro_nome').focus(); // coloca o cursor no campo nome
@@ -54,25 +55,25 @@ function validar(){
 	 document.getElementById('id_password').focus(); // coloca o cursor no campo nome
 	 return false; //retorna um valor de false para a funcao			
   }
-    if(cod_postal1 == ""){ //verifica se o campo esta vazio, se for...
-	 alert("Digite o primeiro campo do código postal"); //... pede que digite uma pass
+    if(cod_postal1 == "" || cod_postal1.length!=4 || !isNaN(cod_postal1)){ //verifica se o campo esta vazio, se for...
+	 //alert("Digite o primeiro campo do código postal"); //... pede que digite uma pass
 	 document.getElementById('erro_cod_posta').innerHTML ="Digite um código postal válido"; //segunda opção de aviso, aparece mensagem no html
 	 document.getElementById('id_cod_postal1').focus(); // coloca o cursor no campo nome
 	 return false; //retorna um valor de false para a funcao			
   }
-  if(cod_postal2 == ""){ //verifica se o campo esta vazio, se for...
+  if(cod_postal2 == "" || cod_postal2.length!=3){ //verifica se o campo esta vazio, se for...
 	 alert("Digite o segundo campo do código postal"); //... pede que digite uma pass
 	 document.getElementById('erro_cod_postal').innerHTML ="Digite um código postal válido"; //segunda opção de aviso, aparece mensagem no html
 	 document.getElementById('id_cod_postal2').focus(); // coloca o cursor no campo nome
 	 return false; //retorna um valor de false para a funcao			
   }
-    if(telefone == ""){ //verifica se o campo esta vazio, se for...
+    if(telefone == "" || telefone.cod_postal1.length!=9){ //verifica se o campo esta vazio, se for...
 	 alert("Digite o telefone"); //... pede que digite uma pass
 	 document.getElementById('erro_telefone').innerHTML ="Digite um telefone válido"; //segunda opção de aviso, aparece mensagem no html
 	 document.getElementById('id_telefone').focus(); // coloca o cursor no campo nome
 	 return false; //retorna um valor de false para a funcao			
   }
-    if(nif == ""){ //verifica se o campo esta vazio, se for...
+    if(nif == "" || nif.length!=9 || !isNaN(nif)){ //verifica se o campo esta vazio, se for...
 	 alert("Digite o nif"); //... pede que digite uma pass
 	 document.getElementById('erro_nif').innerHTML ="Digite um nif válido"; //segunda opção de aviso, aparece mensagem no html
 	 document.getElementById('id_nif').focus(); // coloca o cursor no campo nome
@@ -86,6 +87,8 @@ function validar(){
 				
 				}
   return true; //se os campos forem preenchidos, a função retornara um falor true
+
+
  
 }
 function carregar(){
@@ -109,7 +112,4 @@ function carregar(){
 		return true;
 		//window.location ="sucesso.html"; //carrega uma nova pagina							
 }
-function submeter(){
 
-	window.location ="efetuar_registo.php";
-}

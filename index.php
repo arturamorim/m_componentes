@@ -1,3 +1,4 @@
+
 <?php
 
 //iniciar sessão
@@ -25,6 +26,7 @@ if(isset($_SESSION['nivel_utilizador'])){
 echo "Bem vindo, ".$_SESSION['nome_login'];
 echo "|| <a href='lista_compras.php'>Ver lista de compras</a>";
 echo "|| <a href='estado_encomenda.php'>Ver estado da encomenda</a>";
+echo "|| <a href='adicionar_artigo.php'>Adicionar artigo</a>";
 echo "|| <a href='logout.php'>Terminar sessão</a>";
 }else{
 include('login.php');}

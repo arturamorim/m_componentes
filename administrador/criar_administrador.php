@@ -13,7 +13,7 @@
 <body>
 
 
-<form name="signup" method="POST" action="modelo_logica\efetuar_registo.php" enctype="multipart/form-data" onsubmit="return validar();">
+<form name="signup" method="POST" action="efetuar_registo_administrador.php" enctype="multipart/form-data" onsubmit="return validar();">
 <!--<form id="form_registo" name="form_registo" method="POST" action="registo_cliente.php"> -->
 <table width="800" border="1" cellspacing="0" cellpadding="0" align="center">
 <th colspan="2">Registo de cliente</th>
@@ -24,7 +24,7 @@
 </tr>
 <tr>
 	<td>Palavra-passe:</td>
-	<td><input type="password" name="password" id="id_password" size="8" /><font size=2>(min 9 carateres)<span id="erro_password"></span>
+	<td><input type="password" name="password" id="id_password" size="8" />(min 9 carateres)<span id="erro_password"></span>
 	</td>
 </tr>
 <tr>
@@ -66,13 +66,7 @@
 	<td><input type="text" name="email" id="id_emai"l size="50"/><span id="erro_email"></span>
 	
 </tr>
-	<tr>
-	<td> 
-Comprovativo de Atividade:</td><td><input type=hidden name=MAX_FILE_SIZE value=3145728><input type="file" name="arquivo" size="20"/><font  size=2>     (max 3Mb do tipo: pdf, png, tif) </font><br/></td> <!--  tamanho maximo 3Mb-->
-</tr>
-	<tr>
-	<td><img src="captcha.php"/></td><td><font size=2>Introduza o código<br><input type="text" name="codigo_captcha"/></td>
-</tr>
+
 <td colspan="2" align="center"><input type="submit" name="registar" id="registar" value="Registar";" />
 <input type="reset" name="apagar_tudo" id="apagar_tudo" value="limpar" onclick="limpar();"/>
 </td>
@@ -80,18 +74,3 @@ Comprovativo de Atividade:</td><td><input type=hidden name=MAX_FILE_SIZE value=3
 </form>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

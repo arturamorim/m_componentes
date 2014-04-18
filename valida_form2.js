@@ -13,6 +13,7 @@ function validar(){
 	var telefone = document.signup.telefone.value; 
 	var nif =	document.signup.nif.value; 
 	var email =	document.signup.email.value;
+	 var imgpath = document.getElementById("arquivo").value;
   
   //aqui começa a validação
   //alert("seu nome "+nome+" seu email "+email);
@@ -83,11 +84,37 @@ function validar(){
 		document.getElementById('erro_email').innerHTML ="Digite um email válido"; //segunda opção de aviso, aparece mensagem no html
 		document.getElementById('id_email').focus();// coloca o cursor no campo email
 		return false;  //retorna um valor de false para a funcao
-				
-				}
+	}
+           
+	if (imgpath == "") {
+	    alert("Upload Agreement...");
+	    document.file.word.focus();
+	    return false;
+	}
+	else {
+	    // code to get File Extension..
+
+	    var arr1 = new Array;
+	    arr1 = imgpath.split("\\");
+	    var len = arr1.length;
+	    var img1 = arr1[len - 1];
+	    var filext = img1.substring(img1.lastIndexOf(".") + 1);
+	    // Checking Extension
+	    if (filext == "txt" || filext == "pdf" || filext == "doc") {
+	        alert("Successfully Uploaded...")
+	        return false;
+	    }
+	    else {
+	        alert("Upload File with Extension ' txt , pdf , doc '");
+	        document.form.word.focus();
+	        return false;
+	    }
+	}
+     
   return true; //se os campos forem preenchidos, a função retornara um falor true
  
 }
+
 function carregar(){
 	if(validar()){ //verifica se o valor da função e true, se for exibe a mensagem e carrega uma nova pagina
 		alert("Registro efetuado, voltando a pagina inicial"); // ..exibe uma alert avisando que voltara a pagina inicial

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("ligacao_bd.php");
+require("..\modelo_logica\ligacao_bd.php");
 	
 
 	
@@ -17,6 +17,7 @@ $nif=$_POST['nif'];
 $telefone=$_POST['telefone'];
 $email=$_POST['email'];
 
+/*
 $uploaddir='..\comprovativos_atividade\\';
 $file_path= $_FILES['arquivo']['tmp_name'];
 $file_name= $_FILES['arquivo']['name'];
@@ -28,7 +29,6 @@ $ext=substr($file_name,-3);
 $novo_nome_ficheiro=$nome_login.".".$ext;
 $uploadfile= $uploaddir. $novo_nome_ficheiro;
 
-if( $_SESSION['codigo'] == $_POST['codigo_captcha']){
 if($ext=="txt" || $ext=="jpeg" ||$ext=="png" || $ext=="pdf" ){
 	if(move_uploaded_file($_FILES['arquivo']['tmp_name'], $uploadfile)){
 		echo "Arquivo ".$file_name." enviado<br/>";
@@ -41,9 +41,10 @@ if($ext=="txt" || $ext=="jpeg" ||$ext=="png" || $ext=="pdf" ){
 		echo "com o tamanho de ".$file_size. " bytes";
 		echo "<br/>".$_FILES['arquivo']['name']; }
 		else {echo "<br/> Arquivo não foi possível enviar.";}
+		*/
 
-	$sql = "INSERT INTO utilizadores(nome_login,password,primeiro_nome,apelido,endereco,localidade,cod_postal1,cod_postal2,nif,telefone,email,doc_comprovativo) 
-	VALUES ('$nome_login', '$password', '$primeiro_nome', '$apelido', '$endereco','$localidade','$cod_postal1', '$cod_postal2','$nif','$telefone','$email', '$novo_nome_ficheiro')";
+	$sql = "INSERT INTO utilizadores(nome_login,password,primeiro_nome,apelido,endereco,localidade,cod_postal1,cod_postal2,nif,telefone,email,nivel_utilizador) 
+	VALUES ('$nome_login', '$password', '$primeiro_nome', '$apelido', '$endereco','$localidade','$cod_postal1', '$cod_postal2','$nif','$telefone','$email', '2')";
 	
 	//$sql_client="INSERT INTO utilizadores(nome_login,password,primeiro_nome,apelido,endereco,localidade,codigo_postal,telefone,email,nivel_utilizador,doc_comprovativo) VALUES (
 	//'".$_POST['nome_login']."',
@@ -65,12 +66,11 @@ if($ext=="txt" || $ext=="jpeg" ||$ext=="png" || $ext=="pdf" ){
 	//remeter para página de entrada
 	
 	
-	}
+	/*
 	else 
 		echo "<br/>Tipo de arquivo não suportado ";
 	//sleep(3);
 	//header("Location: ../registo_cliente2.php");
-	}
-	echo"<br/>Código verificação errado ";
+	*/
 
 ?>

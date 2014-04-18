@@ -7,6 +7,6 @@ $sql="DELETE FROM utilizadores where id_utilizador =".base64_decode($_GET['id_ut
 $consulta=mysql_query($sql);
 
 //voltar ao menu de administrador
-header("Location: listar_clientes.php");
+header("Location: listar_utilizadores.php");
 exit;
 ?>

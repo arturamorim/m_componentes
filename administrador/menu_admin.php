@@ -34,6 +34,8 @@ if(isset($_SESSION['nivel_utilizador']))
 	<p><a href='listar_categorias.php'>Listar categorias</a>	
 	<p><a href='listar_utilizadores_por_validar.php'>Listar utilizadores por validar</a>
 		<p><a href='listar_utilizadores.php'>Listar utilizadores</a>
+		<p><a href='criar_administrador.php'>Criar administrador</a>
+		<p><a href='listar_administradores.php'>Listar administradores</a>
 	<p><a href='../logout.php'>Terminar sessão</a></td>
 </tr>
 </body>
